@@ -1,0 +1,29 @@
+#root {
+    display: flex;
+    justify-content: center;
+}
+
+/* 리엑트는 최 상단에 root가 가장 먼저 있다. 그걸 만지는 것이다. */
+
+body {
+    background-color: rgb(207, 232, 255);
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    min-width: 700px;
+    margin: 32px;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: rgb(0 0 0 /10%) 0 0 10px;
+}
+
+.calculatorContainer { 
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+    min-width: 500px;
+    border-radius: 16px;
+}
