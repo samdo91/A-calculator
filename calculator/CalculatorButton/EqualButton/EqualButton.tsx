@@ -1,15 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import { ICalculator, ICalculatorButton } from "../../Calculator";
 
 
 const EqualButton = (props: ICalculator & ICalculatorButton) => {
     const { calculation, setCalculation, onOperatorButton, setOnOperatorButton } = props;
+    const [on, seton] =useState<string[]>([])
   
 
 
     const headleEqua = (e: React.MouseEvent<HTMLButtonElement>) => {
-        setOnOperatorButton([...onOperatorButton, calculation])
+        setOnOperatorButton (()=>([...onOperatorButton, calculation]))
         setCalculation("")
+        seton(()=>([...onOperatorButton]))
+        console.log(onOperatorButton)
+        console.log(on)
          resultFun()
 
 

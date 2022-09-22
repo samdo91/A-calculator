@@ -1,0 +1,24 @@
+#root{
+    display: flex;
+    justify-content: center;
+}
+/* 리엑트는 최 상단에 root가 가장 먼저 있다. 그걸 만지는 것이다. */
+
+body{ background-color: rgb(207,232,255);}
+
+.mainContainer{ background-color: white;
+min-width: 700px;
+margin: 32px; 
+padding: 32px;
+border-radius: 16px ;
+box-shadow: rgb(0 0 0 /10%) 0 0 10px;
+}
+
+
+
+.mark5{ color: #42cd32; 
+ background-color: inherit ;}
+ /* inherit 상위 컴포넌트의 색상을 따라간다. */
+
+ 
+
