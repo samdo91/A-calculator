@@ -10,14 +10,45 @@ const OperatorButton = (props: ICalculator & ICalculatorButton) => {
 
     const headleOperator = (e: React.MouseEvent<HTMLButtonElement>) => {
         const target = e.target as HTMLButtonElement
+        console.log("1 : ", onOperatorButton)
+        onOperatorButton.push(calculation)
+        if (onOperatorButton.length >= 3) {
+            setCalculation(resultFun())
+            setOnOperatorButton([resultFun(), target.value])
+            console.log(onOperatorButton)
+        }
 
+        if (onOperatorButton.length < 3) {
+            setOnOperatorButton([...onOperatorButton, target.value])
+            setCalculation("")
 
-    
-        console.log(onOperatorButton)
-        setOnOperatorButton([...onOperatorButton, calculation, target.value])
-        setCalculation("")
-        console.log(onOperatorButton)
+        }
+        console.log("2: ", onOperatorButton)
 
+    }
+
+    const resultFun = (): string => {
+
+        const result = onOperatorButton.reduce((acc, cur, idx): string => {
+            // console.log( onOperatorButton[idx-1],cur,onOperatorButton[idx+1])
+            switch (cur) {
+                case "+":
+                    acc = String(Number(onOperatorButton[idx - 1]) + Number(onOperatorButton[idx + 1]))
+                    break;	//각 case별로 분리
+                case "-":
+                    acc = String(Number(onOperatorButton[idx - 1]) - Number(onOperatorButton[idx + 1]))
+                    break;
+                case "*":
+                    acc = String(Number(onOperatorButton[idx - 1]) * Number(onOperatorButton[idx + 1]))
+                    break;
+                case "/":
+                    acc = String(Number(onOperatorButton[idx - 1]) / Number(onOperatorButton[idx + 1]))
+                    break;
+
+            }
+            return acc
+        })
+        return result
 
     }
     return (<>

@@ -1,10 +1,10 @@
 import React from "react"
-import { ICalculator } from "../../Calculator"
+import Calculator, { ICalculator, ICalculatorButton } from "../../Calculator"
 
 
 
-const NumberButton =(props:ICalculator) =>{
-    const { calculation, setCalculation } = props
+const NumberButton =(props:ICalculator& ICalculatorButton) =>{
+    const { calculation, setCalculation,} = props
     
     const headleNumberButton =(e: React.MouseEvent<HTMLButtonElement>)  =>{
         const target= e.target as HTMLButtonElement

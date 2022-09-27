@@ -8,7 +8,7 @@ const CalculatorButton =  (props:ICalculator & ICalculatorButton) =>{
     const { calculation, setCalculation,onOperatorButton ,setOnOperatorButton} = props
 
  return(<>
- <NumberButton  calculation={calculation} setCalculation={setCalculation}/>
+ <NumberButton  calculation={calculation} setCalculation={setCalculation} onOperatorButton={onOperatorButton} setOnOperatorButton={setOnOperatorButton}/>
  <OperatorButton  calculation={calculation} setCalculation={setCalculation} onOperatorButton={onOperatorButton} setOnOperatorButton={setOnOperatorButton}/>
 
 

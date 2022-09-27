@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React from "react";
 import { ICalculator} from "../Calculator";
 
 const CalculationBar = (props: ICalculator) => {

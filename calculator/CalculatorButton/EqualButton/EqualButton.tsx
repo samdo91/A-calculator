@@ -1,27 +1,22 @@
-import React, {useState} from "react";
+import React from "react";
 import { ICalculator, ICalculatorButton } from "../../Calculator";
 
 
 const EqualButton = (props: ICalculator & ICalculatorButton) => {
-    const { calculation, setCalculation, onOperatorButton, setOnOperatorButton } = props;
-    const [on, seton] =useState<string[]>([])
-  
+    const { calculation, setCalculation, onOperatorButton, setOnOperatorButton} = props;
 
 
     const headleEqua = (e: React.MouseEvent<HTMLButtonElement>) => {
-        setOnOperatorButton (()=>([...onOperatorButton, calculation]))
+     
+        onOperatorButton.push(calculation)
         setCalculation("")
-        seton(()=>([...onOperatorButton]))
-        console.log(onOperatorButton)
-        console.log(on)
-         resultFun()
-
-
+        setCalculation(resultFun())
+        setOnOperatorButton([])
 
     }
-    const resultFun = () => {
+    const resultFun = ():string =>{ 
 
-        const result = onOperatorButton.reduce((acc, cur, idx): string => {
+        const result = onOperatorButton.reduce((acc, cur, idx):string => {
             // console.log( onOperatorButton[idx-1],cur,onOperatorButton[idx+1])
             switch (cur) {
                 case "+":
@@ -39,9 +34,9 @@ const EqualButton = (props: ICalculator & ICalculatorButton) => {
 
             }
             return acc
-        })
+        } )
+ return result
 
-        setCalculation(result)
     }
 
 
