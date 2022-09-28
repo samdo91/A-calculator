@@ -8,22 +8,25 @@ import EqualButton from "./CalculatorButton/EqualButton/EqualButton";
 
 export interface ICalculator {
 
-    calculation: string
-    setCalculation: React.Dispatch<React.SetStateAction<string>>
+    calculation: { num: string; gift: boolean; }
+    setCalculation: React.Dispatch<React.SetStateAction<{
+        num: string;
+        gift: boolean;
+    }>>
 
 }
 
 export interface ICalculatorButton {
     onOperatorButton: (string)[]
-    setOnOperatorButton:React.Dispatch<React.SetStateAction<string[]>>
+    setOnOperatorButton: React.Dispatch<React.SetStateAction<string[]>>
 }
 
 
 const Calculator = () => {
 
-    const [calculation, setCalculation] = useState("")
+    const [calculation, setCalculation] = useState({ num: "", gift: true })
     const [onOperatorButton, setOnOperatorButton] = useState<string[]>([])
-   
+
 
 
     return (<div className={styles.mainContainer}>

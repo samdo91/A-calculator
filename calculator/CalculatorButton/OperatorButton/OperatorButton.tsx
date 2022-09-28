@@ -10,20 +10,22 @@ const OperatorButton = (props: ICalculator & ICalculatorButton) => {
 
     const headleOperator = (e: React.MouseEvent<HTMLButtonElement>) => {
         const target = e.target as HTMLButtonElement
-        console.log("1 : ", onOperatorButton)
-        onOperatorButton.push(calculation)
-        if (onOperatorButton.length >= 3) {
-            setCalculation(resultFun())
-            setOnOperatorButton([resultFun(), target.value])
-            console.log(onOperatorButton)
-        }
+        onOperatorButton.push(calculation.num)
 
         if (onOperatorButton.length < 3) {
             setOnOperatorButton([...onOperatorButton, target.value])
-            setCalculation("")
+            setCalculation({ num: "", gift: true })
+            console.log("bbbbb", calculation, onOperatorButton)
 
         }
-        console.log("2: ", onOperatorButton)
+
+        if (onOperatorButton.length >= 3) {
+            
+            setCalculation({ num: resultFun(), gift: false })
+            setOnOperatorButton([resultFun(),target.value])
+            console.log(onOperatorButton)
+
+        }
 
     }
 

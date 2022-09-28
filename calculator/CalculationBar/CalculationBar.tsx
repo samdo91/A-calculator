@@ -8,11 +8,13 @@ const CalculationBar = (props: ICalculator) => {
 
     const headleCalculationBar = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
-        setCalculation(String(e.target.value))
+        setCalculation({ num:String(e.target.value), gift: calculation.gift})
+        
+      
     }
    
     return (<>
-        <input type="text" dir="rtl" value={calculation} onChange={headleCalculationBar} />
+        <input type="text" dir="rtl" value={calculation.num} onChange={headleCalculationBar} />
 
     </>
     )

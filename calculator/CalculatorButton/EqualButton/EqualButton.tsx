@@ -8,10 +8,10 @@ const EqualButton = (props: ICalculator & ICalculatorButton) => {
 
     const headleEqua = (e: React.MouseEvent<HTMLButtonElement>) => {
      
-        onOperatorButton.push(calculation)
-        setCalculation("")
-        setCalculation(resultFun())
+        onOperatorButton.push(calculation.num)
+        setCalculation({num: resultFun(), gift: false})
         setOnOperatorButton([])
+      
 
     }
     const resultFun = ():string =>{ 
